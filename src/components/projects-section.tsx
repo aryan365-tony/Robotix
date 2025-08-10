@@ -42,7 +42,7 @@ export default function ProjectsSection({ summary = false }: ProjectsSectionProp
             </div>
           </div>
         )}
-        <div className="mx-auto grid max-w-4xl items-start gap-8 sm:grid-cols-1 md:gap-12 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-4xl items-start gap-8 grid-cols-2 md:gap-12 lg:grid-cols-2">
           {projects.map((project) => (
             <Card key={project.title} className="group overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
               <div className="flex flex-col items-center">

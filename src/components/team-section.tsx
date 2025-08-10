@@ -71,19 +71,19 @@ export default function TeamSection({ summary = false }: TeamSectionProps) {
             </div>
           </div>
         )}
-        <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid grid-cols-2 gap-4 sm:gap-8 pt-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {teamMembers.map((member) => (
             <Card key={member.name} className="text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
-              <CardHeader className="items-center">
+              <CardHeader className="items-center p-4">
                 <Avatar className="w-24 h-24 mb-4">
                   <AvatarImage src={member.image} alt={member.name} data-ai-hint={member.hint} />
                   <AvatarFallback>{member.fallback}</AvatarFallback>
                 </Avatar>
-                <CardTitle>{member.name}</CardTitle>
-                <CardDescription className="text-primary">{member.role}</CardDescription>
+                <CardTitle className="text-base sm:text-lg">{member.name}</CardTitle>
+                <CardDescription className="text-primary text-xs sm:text-sm">{member.role}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{member.bio}</p>
+              <CardContent className="p-4 pt-0">
+                <p className="text-xs sm:text-sm text-muted-foreground">{member.bio}</p>
               </CardContent>
             </Card>
           ))}

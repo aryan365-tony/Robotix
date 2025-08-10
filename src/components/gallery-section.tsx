@@ -48,7 +48,7 @@ export default function GallerySection({ summary = false }: GallerySectionProps)
         >
           <CarouselContent>
             {galleryImages.map((image, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="basis-1/2 md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card className="overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
                     <CardContent className="flex aspect-square items-center justify-center p-0">
