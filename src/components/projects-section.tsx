@@ -42,16 +42,16 @@ export default function ProjectsSection({ summary = false }: ProjectsSectionProp
             </div>
           </div>
         )}
-        <div className="mx-auto grid max-w-4xl items-start gap-8 grid-cols-2 md:gap-12 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-4xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 justify-center">
           {projects.map((project) => (
-            <Card key={project.title} className="group overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
+            <Card key={project.title} className="group overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 max-w-[300px]">
               <div className="flex flex-col items-center">
-                <div className="w-full aspect-video">
+                <div className="w-full aspect-square">
                   <Image
                     src={project.image}
                     alt={`Image of ${project.title}`}
-                    width={400}
-                    height={225}
+                    width={300}
+                    height={300}
                     className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                     data-ai-hint={project.hint}
                   />

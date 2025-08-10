@@ -44,19 +44,19 @@ export default function GallerySection({ summary = false }: GallerySectionProps)
             align: "start",
             loop: true,
           }}
-          className="w-full max-w-4xl mx-auto"
+          className="w-full max-w-sm sm:max-w-xl md:max-w-4xl mx-auto"
         >
           <CarouselContent>
             {galleryImages.map((image, index) => (
-              <CarouselItem key={index} className="basis-1/2 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
                 <div className="p-1">
                   <Card className="overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
                     <CardContent className="flex aspect-square items-center justify-center p-0">
                       <Image
                         src={image.src}
                         alt={image.alt}
-                        width={800}
-                        height={600}
+                        width={400}
+                        height={400}
                         className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
                         data-ai-hint={image.hint}
                       />
