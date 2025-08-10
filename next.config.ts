@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'robotix-iith.github.io',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 };

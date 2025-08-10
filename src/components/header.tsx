@@ -5,6 +5,7 @@ import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const navLinks = [
   { href: '/#', label: 'About' },
@@ -14,22 +15,6 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
-const Logo = () => (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="text-primary"
-    >
-      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-
-
 export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
@@ -38,7 +23,13 @@ export default function Header() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="mr-4 flex items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <Logo />
+            <Image
+              src="https://robotix-iith.github.io/Robotix/Images/hello.png"
+              alt="Robotix Club Logo"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
             <span className="font-bold sm:inline-block">Robotix Club, IITH</span>
           </Link>
         </div>
