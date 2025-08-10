@@ -90,24 +90,32 @@ body {
   }
 }
 
-@keyframes move-bg {
+@keyframes move-particles {
   0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
+    transform: translate(0, 0);
   }
   100% {
-    background-position: 0% 0%;
+    transform: translate(40px, 40px);
   }
 }
 
 .animated-bg {
-  background-image:
-    radial-gradient(ellipse at 20% 20%, hsl(var(--primary) / 0.1), transparent 40%),
-    radial-gradient(ellipse at 80% 30%, hsl(var(--primary) / 0.1), transparent 40%),
-    radial-gradient(ellipse at 40% 80%, hsl(var(--accent) / 0.1), transparent 40%),
-    radial-gradient(ellipse at 90% 90%, hsl(var(--accent) / 0.1), transparent 40%);
-  background-size: 200% 200%;
-  animation: move-bg 30s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(hsl(var(--primary) / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--primary) / 0.07) 1px, transparent 1px),
+    radial-gradient(circle at 10px 10px, hsl(var(--accent) / 0.1) 1px, transparent 1.5px);
+  background-size: 40px 40px, 40px 40px, 40px 40px;
+  animation: move-particles 4s linear infinite;
+  z-index: -1;
 }
