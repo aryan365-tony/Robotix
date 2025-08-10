@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import CursorTracker from '@/components/cursor-tracker';
 
 export const metadata: Metadata = {
   title: 'Robotix Club, IITH',
@@ -20,6 +21,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
+        <CursorTracker />
         {children}
         <Toaster />
       </body>
