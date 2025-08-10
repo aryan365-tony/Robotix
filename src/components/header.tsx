@@ -7,8 +7,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
 
 const navLinks = [
-  { href: '/', label: 'About' },
-  { href: '/projects', label: 'Projects' },
+  { href: '/#', label: 'About' },
+  { href: '/#summary-sections', label: 'Projects' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/team', label: 'Team' },
   { href: '/contact', label: 'Contact' },
@@ -47,7 +47,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="px-4 py-2 transition-all duration-300 rounded-md hover:bg-accent hover:text-accent-foreground"
+              className="px-4 py-2 transition-all duration-300 rounded-full hover:bg-accent hover:text-accent-foreground"
             >
               {link.label}
             </Link>
