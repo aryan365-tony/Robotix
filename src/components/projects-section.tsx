@@ -30,7 +30,7 @@ export default function ProjectsSection({ summary = false }: ProjectsSectionProp
             </div>
           </div>
         )}
-        <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-1 md:gap-12 lg:max-w-none lg:grid-cols-1">
+        <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-1 md:gap-12 lg:grid-cols-1">
           {projects.map((project) => (
             <Card key={project.title} className="overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
               <CardHeader className="p-0">
