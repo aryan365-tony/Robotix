@@ -31,14 +31,7 @@ export default function Home() {
 
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-5xl font-headline mb-12">Our Team</h2>
-            <TeamSection summary={true} />
-            <div className="text-center mt-8">
-              <Button asChild variant="outline" size="lg">
-                <Link href="/team">
-                  Meet the Whole Team <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
+            <TeamSection />
           </div>
 
           <div className="container mx-auto">
