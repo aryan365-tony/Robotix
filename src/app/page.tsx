@@ -10,7 +10,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-dvh bg-background animated-bg">
+    <div className="flex flex-col min-h-dvh animated-bg">
       <Header />
       <main className="flex-1">
         <HeroSection />

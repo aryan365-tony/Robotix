@@ -4,7 +4,7 @@ import Footer from '@/components/footer';
 
 export default function TeamPage() {
   return (
-    <div className="flex flex-col min-h-dvh bg-background">
+    <div className="flex flex-col min-h-dvh animated-bg">
       <Header />
       <main className="flex-1">
         <TeamSection />
