@@ -7,6 +7,18 @@ const allProjects = [
     description: "An advanced four-legged robot designed for stable locomotion and maneuverability across complex terrains, inspired by biological movement.",
     image: "https://placehold.co/600x400.png",
     hint: "quadruped robot"
+  },
+  {
+    title: "Project 2",
+    description: "A placeholder description for the second amazing project from the Robotix Club.",
+    image: "https://placehold.co/600x400.png",
+    hint: "robot arm"
+  },
+  {
+    title: "Project 3",
+    description: "This is where we can describe another one of the innovative projects developed by our team.",
+    image: "https://placehold.co/600x400.png",
+    hint: "autonomous vehicle"
   }
 ];
 
