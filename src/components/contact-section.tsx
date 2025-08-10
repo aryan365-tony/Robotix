@@ -18,9 +18,9 @@ export default function ContactSection() {
           </div>
         </div>
         <div className="mx-auto max-w-4xl">
-          <Card>
+          <Card className="bg-secondary/50 backdrop-blur-sm">
             <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="p-8 bg-secondary rounded-l-lg">
+              <div className="p-8 bg-secondary/80 rounded-l-lg">
                 <CardHeader>
                   <CardTitle>Contact Information</CardTitle>
                   <CardDescription>

@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
-const teamMembers = [
+const allTeamMembers = [
   {
     name: "Alex Johnson",
     role: "Club President",
@@ -34,23 +34,46 @@ const teamMembers = [
     fallback: "ML",
     hint: "professional portrait"
   },
+  {
+    name: "Carlos Rivera",
+    role: "AI/ML Lead",
+    bio: "Focuses on implementing intelligent algorithms in our robotic systems.",
+    image: "https://placehold.co/100x100.png",
+    fallback: "CR",
+    hint: "professional portrait"
+  },
+  {
+    name: "Sofia Rossi",
+    role: "Outreach Coordinator",
+    bio: "Connects the club with the community and organizes workshops.",
+    image: "https://placehold.co/100x100.png",
+    fallback: "SR",
+    hint: "professional portrait"
+  }
 ];
 
-export default function TeamSection() {
+type TeamSectionProps = {
+  summary?: boolean;
+}
+
+export default function TeamSection({ summary = false }: TeamSectionProps) {
+  const teamMembers = summary ? allTeamMembers.slice(0, 4) : allTeamMembers;
   return (
-    <section id="team" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
+    <section id="team" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50 backdrop-blur-sm rounded-lg">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Meet Our Team</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              The brilliant minds behind our robots. We are a diverse group of engineers, designers, and innovators.
-            </p>
+        {!summary && (
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Meet Our Team</h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                The brilliant minds behind our robots. We are a diverse group of engineers, designers, and innovators.
+              </p>
+            </div>
           </div>
-        </div>
+        )}
         <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           {teamMembers.map((member) => (
-            <Card key={member.name} className="text-center">
+            <Card key={member.name} className="text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
               <CardHeader className="items-center">
                 <Avatar className="w-24 h-24 mb-4">
                   <AvatarImage src={member.image} alt={member.name} data-ai-hint={member.hint} />
