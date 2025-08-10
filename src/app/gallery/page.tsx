@@ -1,13 +1,13 @@
 import Header from '@/components/header';
-import HeroSection from '@/components/hero-section';
+import GallerySection from '@/components/gallery-section';
 import Footer from '@/components/footer';
 
-export default function Home() {
+export default function GalleryPage() {
   return (
     <div className="flex flex-col min-h-dvh bg-background">
       <Header />
       <main className="flex-1">
-        <HeroSection />
+        <GallerySection />
       </main>
       <Footer />
     </div>
