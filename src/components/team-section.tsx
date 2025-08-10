@@ -3,51 +3,51 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 
 const allTeamMembers = [
   {
-    name: "Alex Johnson",
-    role: "Club President",
-    bio: "Passionate about robotics and leadership. Driving the club's vision forward.",
+    name: "Aditya Gupta",
+    role: "Overall Coordinator",
+    bio: "Leading the club's vision and coordinating all activities.",
     image: "https://placehold.co/100x100.png",
-    fallback: "AJ",
+    fallback: "AG",
     hint: "professional portrait"
   },
   {
-    name: "Priya Sharma",
-    role: "Head of Technology",
-    bio: "Loves tackling complex hardware and software challenges. Expert in embedded systems.",
+    name: "Abhijit Kashyap",
+    role: "Overall Coordinator",
+    bio: "Co-leading the club and ensuring smooth operations.",
     image: "https://placehold.co/100x100.png",
-    fallback: "PS",
+    fallback: "AK",
     hint: "professional portrait"
   },
   {
-    name: "Ben Carter",
-    role: "Project Manager",
-    bio: "Ensures projects are on track and fosters a collaborative environment.",
+    name: "Aryan Gandhi",
+    role: "Programming and ML Head",
+    bio: "Expert in algorithms and machine learning applications for robotics.",
     image: "https://placehold.co/100x100.png",
-    fallback: "BC",
+    fallback: "AG",
     hint: "professional portrait"
   },
   {
-    name: "Mei Lin",
-    role: "Treasurer",
-    bio: "Manages the club's finances and secures funding for our ambitious projects.",
+    name: "Pardhu",
+    role: "Mechanical Modelling Head",
+    bio: "Specialist in designing and fabricating mechanical systems.",
     image: "https://placehold.co/100x100.png",
-    fallback: "ML",
+    fallback: "P",
     hint: "professional portrait"
   },
   {
-    name: "Carlos Rivera",
-    role: "AI/ML Lead",
-    bio: "Focuses on implementing intelligent algorithms in our robotic systems.",
+    name: "Soumyajit Maji",
+    role: "Quadruped Lead 1",
+    bio: "Leading the development of our quadruped robot project.",
     image: "https://placehold.co/100x100.png",
-    fallback: "CR",
+    fallback: "SM",
     hint: "professional portrait"
   },
   {
-    name: "Sofia Rossi",
-    role: "Outreach Coordinator",
-    bio: "Connects the club with the community and organizes workshops.",
+    name: "Ethan Bobby",
+    role: "Quadruped Lead 2",
+    bio: "Co-leading the development of our advanced quadruped robot.",
     image: "https://placehold.co/100x100.png",
-    fallback: "SR",
+    fallback: "EB",
     hint: "professional portrait"
   }
 ];
@@ -71,7 +71,7 @@ export default function TeamSection({ summary = false }: TeamSectionProps) {
             </div>
           </div>
         )}
-        <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+        <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member) => (
             <Card key={member.name} className="text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
               <CardHeader className="items-center">
