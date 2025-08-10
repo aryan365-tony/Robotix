@@ -27,7 +27,7 @@ const allTeamMembers = [
     hint: "professional portrait"
   },
   {
-    name: "Pardhu",
+    name: "Pardhu Besetty",
     role: "Mechanical Modelling Head",
     bio: "Specialist in designing and fabricating mechanical systems.",
     image: "https://placehold.co/100x100.png",
