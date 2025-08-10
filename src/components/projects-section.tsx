@@ -3,35 +3,11 @@ import Image from "next/image";
 
 const allProjects = [
   {
-    title: "Autonomous Navigation Drone",
-    description: "A quadcopter equipped with computer vision and SLAM algorithms for fully autonomous flight and mapping in unknown environments.",
+    title: "Quadruped Robot",
+    description: "An advanced four-legged robot designed for stable locomotion and maneuverability across complex terrains, inspired by biological movement.",
     image: "https://placehold.co/600x400.png",
-    hint: "drone circuit"
-  },
-  {
-    title: "AI-Powered Robotic Arm",
-    description: "A 6-axis robotic arm that uses machine learning to identify, sort, and manipulate objects with high precision.",
-    image: "https://placehold.co/600x400.png",
-    hint: "robotic arm"
-  },
-  {
-    title: "All-Terrain Rescue Bot",
-    description: "A rugged, tracked robot designed for search and rescue operations in challenging terrains, featuring thermal imaging and remote control.",
-    image: "https://placehold.co/600x400.png",
-    hint: "robot wheels"
-  },
-  {
-    title: "Soccer Playing Robots",
-    description: "A team of autonomous robots designed to compete in the RoboCup Small Size League, showcasing advanced coordination and strategy.",
-    image: "https://placehold.co/600x400.png",
-    hint: "soccer robot"
-  },
-  {
-    title: "Humanoid Assistant",
-    description: "A bipedal robot capable of assisting with simple tasks, using natural language processing to understand commands.",
-    image: "https://placehold.co/600x400.png",
-    hint: "humanoid robot"
-  },
+    hint: "quadruped robot"
+  }
 ];
 
 type ProjectsSectionProps = {
@@ -54,7 +30,7 @@ export default function ProjectsSection({ summary = false }: ProjectsSectionProp
             </div>
           </div>
         )}
-        <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-1 md:gap-12 lg:max-w-none lg:grid-cols-1">
           {projects.map((project) => (
             <Card key={project.title} className="overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
               <CardHeader className="p-0">
