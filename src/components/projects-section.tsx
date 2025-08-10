@@ -42,24 +42,24 @@ export default function ProjectsSection({ summary = false }: ProjectsSectionProp
             </div>
           </div>
         )}
-        <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-1 md:gap-12 lg:grid-cols-1">
+        <div className="mx-auto grid max-w-4xl items-start gap-8 sm:grid-cols-1 md:gap-12 lg:grid-cols-2">
           {projects.map((project) => (
             <Card key={project.title} className="group overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
-              <div className="flex flex-col md:flex-row items-center">
-                <div className="w-full md:w-1/3 aspect-square">
+              <div className="flex flex-col items-center">
+                <div className="w-full aspect-video">
                   <Image
                     src={project.image}
                     alt={`Image of ${project.title}`}
                     width={400}
-                    height={400}
+                    height={225}
                     className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                     data-ai-hint={project.hint}
                   />
                 </div>
-                <div className="w-full md:w-2/3">
-                  <CardContent className="p-6">
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription className="mt-2">{project.description}</CardDescription>
+                <div className="w-full">
+                  <CardContent className="p-4">
+                    <CardTitle className="text-xl">{project.title}</CardTitle>
+                    <CardDescription className="mt-2 text-sm">{project.description}</CardDescription>
                   </CardContent>
                 </div>
               </div>
