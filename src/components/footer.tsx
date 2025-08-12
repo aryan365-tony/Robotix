@@ -21,15 +21,15 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-8">
           <Link href="#" aria-label="GitHub" className="flex flex-col items-center gap-2 text-muted-foreground transition-transform duration-300 hover:text-primary hover:scale-110">
-            <Github className="h-10 w-10" />
+            <Github className="h-7 w-7" />
             <span className="text-sm font-medium">GitHub</span>
           </Link>
           <Link href="https://www.linkedin.com/company/robotix-iith/" aria-label="LinkedIn" className="flex flex-col items-center gap-2 text-muted-foreground transition-transform duration-300 hover:text-primary hover:scale-110">
-            <Linkedin className="h-10 w-10" />
+            <Linkedin className="h-7 w-7" />
             <span className="text-sm font-medium">LinkedIn</span>
           </Link>
           <Link href="https://www.instagram.com/robotix.iith?igsh=MWg1bDR0cWt0YjB2cA==" aria-label="Instagram" className="flex flex-col items-center gap-2 text-muted-foreground transition-transform duration-300 hover:text-primary hover:scale-110">
-            <Instagram className="h-10 w-10" />
+            <Instagram className="h-7 w-7" />
             <span className="text-sm font-medium">Instagram</span>
           </Link>
         </div>
