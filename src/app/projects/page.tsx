@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Header from '@/components/header';
 import ProjectsSection from '@/components/projects-section';
 import Footer from '@/components/footer';
