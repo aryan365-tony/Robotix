@@ -53,19 +53,24 @@ export default function ContactSection() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-4">
+                  <form
+                    action="https://formsubmit.co/robotix@gymkhana.iith.ac.in"
+                    method="POST"
+                    className="space-y-4"
+                  >
                     <div className="space-y-2">
                       <Label htmlFor="name">Name</Label>
-                      <Input id="name" placeholder="Your Name" />
+                      <Input id="name" name="name" placeholder="Your Name" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="your.email@example.com" />
+                      <Input id="email" name="email" type="email" placeholder="your.email@example.com" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="message">Message</Label>
-                      <Textarea id="message" placeholder="Your message..." />
+                      <Textarea id="message" name="message" placeholder="Your message..." required />
                     </div>
+                    <input type="hidden" name="_captcha" value="false" />
                     <Button type="submit" className="w-full">Submit</Button>
                   </form>
                 </CardContent>
