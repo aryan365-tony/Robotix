@@ -1,12 +1,19 @@
 import { google } from 'googleapis';
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID;
+const GOOGLE_SHEETS_CLIENT_EMAIL = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
+const GOOGLE_SHEETS_PRIVATE_KEY = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
 
 const getSheets = () => {
+  if (!GOOGLE_SHEETS_CLIENT_EMAIL || !GOOGLE_SHEETS_PRIVATE_KEY) {
+    console.warn("Google Sheets API credentials are not set in environment variables.");
+    return null;
+  }
+
   const auth = new google.auth.GoogleAuth({
     credentials: {
-      client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-      private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      client_email: GOOGLE_SHEETS_CLIENT_EMAIL,
+      private_key: GOOGLE_SHEETS_PRIVATE_KEY,
     },
     scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
   });
@@ -15,8 +22,17 @@ const getSheets = () => {
 }
 
 async function getSheetData(range: string) {
+  if (!SPREADSHEET_ID) {
+    console.warn("GOOGLE_SHEET_ID is not set in environment variables.");
+    return [];
+  }
+  
+  const sheets = getSheets();
+  if (!sheets) {
+    return [];
+  }
+
   try {
-    const sheets = getSheets();
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
       range: range,
@@ -29,6 +45,7 @@ async function getSheetData(range: string) {
 }
 
 function mapToObjects(data: any[][]) {
+  if (data.length < 2) return [];
   const headers = data[0];
   const rows = data.slice(1);
   return rows.map(row => {
@@ -42,18 +59,15 @@ function mapToObjects(data: any[][]) {
 
 export async function getProjects() {
   const data = await getSheetData('Projects!A1:D');
-  if (data.length < 2) return [];
   return mapToObjects(data);
 }
 
 export async function getTeamMembers() {
   const data = await getSheetData('Team!A1:F');
-   if (data.length < 2) return [];
   return mapToObjects(data);
 }
 
 export async function getGalleryImages() {
   const data = await getSheetData('Gallery!A1:C');
-   if (data.length < 2) return [];
   return mapToObjects(data);
 }
