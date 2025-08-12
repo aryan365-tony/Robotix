@@ -1,11 +1,57 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ContactSection() {
+  const { toast } = useToast();
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("submitting");
+
+    const formData = new FormData(event.target as HTMLFormElement);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("https://formsubmit.co/robotix@gymkhana.iith.ac.in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        (event.target as HTMLFormElement).reset();
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. We'll get back to you soon.",
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      setStatus("error");
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+       setTimeout(() => setStatus("idle"), 5000);
+    }
+  }
+
   return (
     <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
@@ -54,8 +100,7 @@ export default function ContactSection() {
                 </CardHeader>
                 <CardContent>
                   <form
-                    action="https://formsubmit.co/robotix@gymkhana.iith.ac.in"
-                    method="POST"
+                    onSubmit={handleSubmit}
                     className="space-y-4"
                   >
                     <div className="space-y-2">
@@ -71,8 +116,9 @@ export default function ContactSection() {
                       <Textarea id="message" name="message" placeholder="Your message..." required />
                     </div>
                     <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_next" value="/" />
-                    <Button type="submit" className="w-full">Submit</Button>
+                    <Button type="submit" className="w-full" disabled={status === 'submitting'}>
+                      {status === 'submitting' ? 'Submitting...' : 'Submit'}
+                    </Button>
                   </form>
                 </CardContent>
               </div>
