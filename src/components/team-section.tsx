@@ -1,62 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
-const allTeamMembers = [
-  {
-    name: "Aditya Gupta",
-    role: "Overall Coordinator",
-    bio: "Leading the club's vision and coordinating all activities.",
-    image: "https://placehold.co/100x100.png",
-    fallback: "AG",
-    hint: "professional portrait"
-  },
-  {
-    name: "Abhijit Kashyap",
-    role: "Overall Coordinator",
-    bio: "Co-leading the club and ensuring smooth operations.",
-    image: "https://placehold.co/100x100.png",
-    fallback: "AK",
-    hint: "professional portrait"
-  },
-  {
-    name: "Aryan Gandhi",
-    role: "Programming and ML Head",
-    bio: "Expert in algorithms and machine learning applications for robotics.",
-    image: "https://placehold.co/100x100.png",
-    fallback: "AG",
-    hint: "professional portrait"
-  },
-  {
-    name: "Pardhu Besetty",
-    role: "Mechanical Modelling Head",
-    bio: "Specialist in designing and fabricating mechanical systems.",
-    image: "https://placehold.co/100x100.png",
-    fallback: "P",
-    hint: "professional portrait"
-  },
-  {
-    name: "Soumyajit Maji",
-    role: "Quadruped Lead 1",
-    bio: "Leading the development of our quadruped robot project.",
-    image: "https://placehold.co/100x100.png",
-    fallback: "SM",
-    hint: "professional portrait"
-  },
-  {
-    name: "Ethan Bobby",
-    role: "Quadruped Lead 2",
-    bio: "Co-leading the development of our advanced quadruped robot.",
-    image: "https://placehold.co/100x100.png",
-    fallback: "EB",
-    hint: "professional portrait"
-  }
-];
+import { getTeamMembers } from "@/lib/google-sheets";
 
 type TeamSectionProps = {
   summary?: boolean;
 }
 
-export default function TeamSection({ summary = false }: TeamSectionProps) {
+export default async function TeamSection({ summary = false }: TeamSectionProps) {
+  const allTeamMembers = await getTeamMembers();
   const teamMembers = summary ? allTeamMembers.slice(0, 4) : allTeamMembers;
   return (
     <section id="team" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50 backdrop-blur-sm rounded-lg">
@@ -76,7 +27,7 @@ export default function TeamSection({ summary = false }: TeamSectionProps) {
             <Card key={member.name} className="text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 w-full max-w-[250px] sm:max-w-none">
               <CardHeader className="items-center p-4">
                 <Avatar className="w-24 h-24 mb-4">
-                  <AvatarImage src={member.image} alt={member.name} data-ai-hint={member.hint} />
+                  <AvatarImage src={member.image || "https://placehold.co/100x100.png"} alt={member.name} data-ai-hint={member.hint} />
                   <AvatarFallback>{member.fallback}</AvatarFallback>
                 </Avatar>
                 <CardTitle className="text-base sm:text-lg">{member.name}</CardTitle>

@@ -1,32 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Image from "next/image";
-
-const allProjects = [
-  {
-    title: "Quadruped Robot",
-    description: "An advanced four-legged robot designed for stable locomotion and maneuverability across complex terrains, inspired by biological movement.",
-    image: "https://placehold.co/600x400.png",
-    hint: "quadruped robot"
-  },
-  {
-    title: "Project 2",
-    description: "A placeholder description for the second amazing project from the Robotix Club.",
-    image: "https://placehold.co/600x400.png",
-    hint: "robot arm"
-  },
-  {
-    title: "Project 3",
-    description: "This is where we can describe another one of the innovative projects developed by our team.",
-    image: "https://placehold.co/600x400.png",
-    hint: "autonomous vehicle"
-  }
-];
+import { getProjects } from "@/lib/google-sheets";
 
 type ProjectsSectionProps = {
   summary?: boolean;
 };
 
-export default function ProjectsSection({ summary = false }: ProjectsSectionProps) {
+export default async function ProjectsSection({ summary = false }: ProjectsSectionProps) {
+  const allProjects = await getProjects();
   const projects = summary ? allProjects.slice(0, 3) : allProjects;
   
   return (
@@ -48,7 +29,7 @@ export default function ProjectsSection({ summary = false }: ProjectsSectionProp
               <div className="flex flex-col items-center">
                 <div className="w-full aspect-square">
                   <Image
-                    src={project.image}
+                    src={project.image || "https://placehold.co/600x400.png"}
                     alt={`Image of ${project.title}`}
                     width={300}
                     height={300}

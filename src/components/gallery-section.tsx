@@ -7,23 +7,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-const allGalleryImages = [
-  { src: "https://placehold.co/800x600.png", alt: "Students working on a robot in the lab", hint: "students coding" },
-  { src: "https://placehold.co/800x600.png", alt: "Robotix Club team at a competition", hint: "technology event" },
-  { src: "https://placehold.co/800x600.png", alt: "Close-up of a complex circuit board", hint: "circuit board" },
-  { src: "https://placehold.co/800x600.png", alt: "A club workshop in progress", hint: "tech workshop" },
-  { src: "https://placehold.co/800x600.png", alt: "A finished robot on display", hint: "robot display" },
-  { src: "https://placehold.co/800x600.png", alt: "3D printer creating a component", hint: "3d printer" },
-  { src: "https://placehold.co/800x600.png", alt: "Team members collaborating on a design", hint: "team collaboration" },
-  { src: "https://placehold.co/800x600.png", alt: "A drone in mid-flight", hint: "drone flying" },
-];
+import { getGalleryImages } from "@/lib/google-sheets";
 
 type GallerySectionProps = {
   summary?: boolean;
 };
 
-export default function GallerySection({ summary = false }: GallerySectionProps) {
+export default async function GallerySection({ summary = false }: GallerySectionProps) {
+  const allGalleryImages = await getGalleryImages();
   const galleryImages = summary ? allGalleryImages.slice(0, 5) : allGalleryImages;
   
   return (
@@ -53,7 +44,7 @@ export default function GallerySection({ summary = false }: GallerySectionProps)
                   <Card className="overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
                     <CardContent className="flex aspect-square items-center justify-center p-0">
                       <Image
-                        src={image.src}
+                        src={image.src || "https://placehold.co/800x600.png"}
                         alt={image.alt}
                         width={400}
                         height={400}
