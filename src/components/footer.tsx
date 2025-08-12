@@ -19,20 +19,20 @@ export default function Footer() {
             © {new Date().getFullYear()} Robotix Club, IITH. All rights reserved.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" asChild>
             <Link href="#" aria-label="GitHub">
-              <Github className="h-6 w-6 transition-transform duration-300 hover:scale-125" />
+              <Github className="h-8 w-8 transition-transform duration-300 hover:scale-125" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <Link href="https://www.linkedin.com/company/robotix-iith/" aria-label="LinkedIn">
-              <Linkedin className="h-6 w-6 transition-transform duration-300 hover:scale-125" />
+              <Linkedin className="h-8 w-8 transition-transform duration-300 hover:scale-125" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <Link href="https://www.instagram.com/robotix.iith?igsh=MWg1bDR0cWt0YjB2cA==" aria-label="Instagram">
-              <Instagram className="h-6 w-6 transition-transform duration-300 hover:scale-125" />
+              <Instagram className="h-8 w-8 transition-transform duration-300 hover:scale-125" />
             </Link>
           </Button>
         </div>
