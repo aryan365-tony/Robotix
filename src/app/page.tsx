@@ -13,7 +13,9 @@ export default function Home() {
     <div className="flex flex-col min-h-dvh animated-bg">
       <Header />
       <main className="flex-1">
-        <HeroSection />
+        <div className="container mx-auto">
+          <HeroSection />
+        </div>
 
         <div id="summary-sections" className="py-12 md:py-24 lg:py-32 space-y-12 md:space-y-24">
           
