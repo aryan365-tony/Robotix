@@ -26,12 +26,12 @@ export default function Footer() {
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="#" aria-label="LinkedIn">
+            <Link href="https://www.linkedin.com/company/robotix-iith/" aria-label="LinkedIn">
               <Linkedin className="h-6 w-6 transition-transform duration-300 hover:scale-125" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="#" aria-label="Instagram">
+            <Link href="https://www.instagram.com/robotix.iith?igsh=MWg1bDR0cWt0YjB2cA==" aria-label="Instagram">
               <Instagram className="h-6 w-6 transition-transform duration-300 hover:scale-125" />
             </Link>
           </Button>
