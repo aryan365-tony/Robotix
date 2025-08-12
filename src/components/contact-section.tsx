@@ -86,7 +86,7 @@ export default function ContactSection() {
                     <Mail className="w-6 h-6 text-primary mt-1" />
                     <div>
                       <h3 className="font-semibold">Email Us</h3>
-                      <p className="text-muted-foreground">robotix@gymkhana.iith.ac.in</p>
+                      <p className="text-muted-foreground break-all">robotix@gymkhana.iith.ac.in</p>
                     </div>
                   </div>
                 </CardContent>
