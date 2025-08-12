@@ -22,17 +22,17 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" asChild>
             <Link href="#" aria-label="GitHub">
-              <Github className="h-5 w-5 transition-transform duration-300 hover:scale-125" />
+              <Github className="h-6 w-6 transition-transform duration-300 hover:scale-125" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <Link href="#" aria-label="LinkedIn">
-              <Linkedin className="h-5 w-5 transition-transform duration-300 hover:scale-125" />
+              <Linkedin className="h-6 w-6 transition-transform duration-300 hover:scale-125" />
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <Link href="#" aria-label="Instagram">
-              <Instagram className="h-5 w-5 transition-transform duration-300 hover:scale-125" />
+              <Instagram className="h-6 w-6 transition-transform duration-300 hover:scale-125" />
             </Link>
           </Button>
         </div>
