@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { getTeamMembers } from "@/lib/google-sheets";

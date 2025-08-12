@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Image from "next/image";
 import { getProjects } from "@/lib/google-sheets";
