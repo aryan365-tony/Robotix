@@ -4,7 +4,6 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  cursor: none;
 }
 
 @layer base {
@@ -82,6 +81,7 @@ body {
 @layer base {
   * {
     @apply border-border;
+    cursor: none !important;
   }
   body {
     @apply bg-background text-foreground;
