@@ -71,6 +71,7 @@ export default function ContactSection() {
                       <Textarea id="message" name="message" placeholder="Your message..." required />
                     </div>
                     <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_next" value="https://YOUR_SITE_HERE/contact" />
                     <Button type="submit" className="w-full">Submit</Button>
                   </form>
                 </CardContent>
