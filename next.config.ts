@@ -12,16 +12,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
+        hostname: '**',
       },
-      {
-        protocol: 'https',
-        hostname: 'robotix-iith.github.io',
-        port: '',
-        pathname: '/**',
-      }
     ],
   },
 };
