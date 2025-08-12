@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-dvh animated-bg">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 animate-fade-in-up">
         <div className="container mx-auto">
           <HeroSection />
         </div>
