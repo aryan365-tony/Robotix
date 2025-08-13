@@ -2,9 +2,9 @@ import { google } from 'googleapis';
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID;
 const GOOGLE_SHEETS_CLIENT_EMAIL = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
-const GOOGLE_SHEETS_PRIVATE_KEY = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
+const GOOGLE_SHEETS_PRIVATE_KEY = (process.env.GOOGLE_SHEETS_PRIVATE_KEY || '').replace(/\\n/g, '\n');
 
-const getSheets = () => {
+const getSheets = async () => {
   if (!GOOGLE_SHEETS_CLIENT_EMAIL || !GOOGLE_SHEETS_PRIVATE_KEY) {
     console.warn("Google Sheets API credentials are not set in environment variables.");
     return null;
@@ -18,7 +18,8 @@ const getSheets = () => {
     scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
   });
 
-  return google.sheets({ version: 'v4', auth });
+  const client = await auth.getClient();
+  return google.sheets({ version: 'v4', auth: client });
 }
 
 async function getSheetData(range: string) {
@@ -27,7 +28,7 @@ async function getSheetData(range: string) {
     return [];
   }
   
-  const sheets = getSheets();
+  const sheets = await getSheets();
   if (!sheets) {
     return [];
   }
@@ -36,16 +37,42 @@ async function getSheetData(range: string) {
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
       range: range,
+    }, {
+      // This is not standard for googleapis, but some fetch-based libraries might support it.
+      // A more robust way is to wrap this in a fetch call with Next.js caching options.
+      // Let's try a direct fetch to control caching.
     });
-    return response.data.values || [];
+
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${(sheets.auth as any).apiKey}`;
+    
+    const fetchResponse = await fetch(url, { next: { revalidate: 0 } });
+    if (!fetchResponse.ok) {
+      console.error('Error fetching sheet data via fetch:', await fetchResponse.text());
+      return [];
+    }
+
+    const data = await fetchResponse.json();
+    return data.values || [];
   } catch (error) {
     console.error('Error fetching sheet data:', error);
-    return [];
+    // Fallback to the original method if fetch fails for some reason
+    try {
+        const sheets = await getSheets();
+        if(!sheets) return [];
+        const response = await sheets.spreadsheets.values.get({
+            spreadsheetId: SPREADSHEET_ID,
+            range: range,
+        });
+        return response.data.values || [];
+    } catch (fallbackError) {
+        console.error('Error fetching sheet data on fallback:', fallbackError);
+        return [];
+    }
   }
 }
 
 function mapToObjects(data: any[][]) {
-  if (data.length < 2) return [];
+  if (!data || data.length < 2) return [];
   const headers = data[0];
   const rows = data.slice(1);
   return rows.map(row => {
