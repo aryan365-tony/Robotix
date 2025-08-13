@@ -6,6 +6,9 @@ import CursorTracker from '@/components/cursor-tracker';
 export const metadata: Metadata = {
   title: 'Robotix Club, IITH',
   description: 'Welcome to the official website of the Robotix Club at IIT Hyderabad. Explore our projects, team, and events.',
+  icons: {
+    icon: 'https://robotix-iith.github.io/Robotix/Images/hello.png',
+  },
 };
 
 export default function RootLayout({
