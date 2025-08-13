@@ -9,7 +9,7 @@ type ProjectsSectionProps = {
 
 export default async function ProjectsSection({ summary = false }: ProjectsSectionProps) {
   const allProjects = await getProjects();
-  const projects = summary ? allProjects.slice(0, 4) : allProjects;
+  const projects = summary ? allProjects.slice(0, 6) : allProjects;
   
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50 backdrop-blur-sm rounded-lg">
