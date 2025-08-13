@@ -9,7 +9,7 @@ type TeamSectionProps = {
 
 export default async function TeamSection({ summary = false }: TeamSectionProps) {
   const allTeamMembers = await getTeamMembers();
-  const teamMembers = summary ? allTeamMembers.slice(0, 4) : allTeamMembers;
+  const teamMembers = summary ? allTeamMembers.slice(0, 6) : allTeamMembers;
   return (
     <section id="team" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50 backdrop-blur-sm rounded-lg">
       <div className="container px-4 md:px-6">

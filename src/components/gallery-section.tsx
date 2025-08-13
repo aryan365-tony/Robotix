@@ -17,7 +17,7 @@ type GallerySectionProps = {
 
 export default async function GallerySection({ summary = false }: GallerySectionProps) {
   const allGalleryImages = await getGalleryImages();
-  const galleryImages = summary ? allGalleryImages.slice(0, 5) : allGalleryImages;
+  const galleryImages = summary ? allGalleryImages.slice(0, 10) : allGalleryImages;
   
   return (
     <section id="gallery" className="w-full py-12 md:py-24 lg:py-32">

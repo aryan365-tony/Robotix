@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Header from '@/components/header';
 import HeroSection from '@/components/hero-section';
 import Footer from '@/components/footer';
@@ -33,7 +34,7 @@ export default function Home() {
 
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-5xl font-headline mb-12">Our Team</h2>
-            <TeamSection />
+            <TeamSection summary={true}/>
           </div>
 
           <div className="container mx-auto">
